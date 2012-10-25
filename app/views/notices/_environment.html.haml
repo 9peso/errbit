@@ -1,8 +1,9 @@
 .window
   %table.environment
     - html_entities = HTMLEntities.new
-    - notice.env_vars.sort_by {|pair| pair[0]}.each do |key, value|
-      %tr
-        %th= h(html_entities.decode(key))
-        %td.main= h(html_entities.decode(value))
-
+    - ENVIRONMENT_ATTRS.each do |key|
+      - value = notice.env_vars[key]
+      - if value.present?
+        %tr
+          %th= h(html_entities.decode(key))
+          %td.main= h(html_entities.decode(value))
