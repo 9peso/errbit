@@ -55,7 +55,7 @@
   %ul
     %li= link_to 'Summary', '#summary', :rel => 'summary', :class => 'button'
     %li= link_to 'Backtrace', '#backtrace', :rel => 'backtrace', :class => 'button'
-    - if @notice && @notice.user_attributes.present?
+    - if @notice && @notice.current_user.present?
       %li= link_to 'User Details', '#user_attributes', :rel => 'user_attributes', :class => 'button'
     %li= link_to 'Environment', '#environment', :rel => 'environment', :class => 'button'
     %li= link_to 'Parameters', '#params', :rel => 'params', :class => 'button'
@@ -70,10 +70,10 @@
     %h3 Backtrace
     = render 'notices/backtrace', :lines => @notice.backtrace_lines
 
-  - if @notice.user_attributes.present?
+  - if @notice.current_user.present?
     #user_attributes
       %h3 User Details
-      = render 'notices/user_attributes', :user => @notice.user_attributes
+      = render 'notices/user_attributes', :user => @notice.current_user
 
   #environment
     %h3 Environment
