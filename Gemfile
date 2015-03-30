@@ -82,8 +82,9 @@ group :development, :test do
   end
 #  gem 'rpm_contrib'
 #  gem 'newrelic_rpm'
-  gem 'capistrano', '~> 2.13'
-  gem 'capistrano_colors'
+  gem 'capistrano', '= 3.3.5'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
 end
 
 group :test do
